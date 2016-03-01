@@ -60,5 +60,7 @@ set cursorcolumn
 set colorcolumn=80
 set hlsearch
 set noswapfile
+set ttyfast
+set lazyredraw
 colorscheme molokai
 execute pathogen#infect()
