@@ -40,6 +40,8 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_left = 1
+let g:tex_flavor='latex'
+let g:Tex_AutoFolding = 0
 autocmd QuickFixCmdPost *grep* cwindow " Open Ggrep in quickfix window
 map ,gc :Gcommit<Cr>
 map ,gs :Gstatus<Cr>
@@ -60,5 +62,7 @@ set cursorcolumn
 set colorcolumn=80
 set hlsearch
 set noswapfile
+set shellslash
+set grepprg=grep\ -nH\ $*
 colorscheme molokai
 execute pathogen#infect()
