@@ -64,5 +64,7 @@ set hlsearch
 set noswapfile
 set shellslash
 set grepprg=grep\ -nH\ $*
+set ttyfast
+set lazyredraw
 colorscheme molokai
 execute pathogen#infect()
