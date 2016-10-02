@@ -30,19 +30,9 @@ let g:Powerline_colorscheme='solarized256'
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_auto_loc_list = 1
 
-Bundle 'tpope/vim-fugitive'
-" Fugitive: Git client
-" :Gcd
-" :Gstatus
-" :G...
-"
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_left = 1
-autocmd QuickFixCmdPost *grep* cwindow " Open Ggrep in quickfix window
-map ,gc :Gcommit<Cr>
-map ,gs :Gstatus<Cr>
 filetype plugin indent on
 set t_Co=256
 syntax on
