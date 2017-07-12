@@ -53,4 +53,5 @@ set noswapfile
 set ttyfast
 set lazyredraw
 colorscheme molokai
+highlight Comment ctermfg=Blue
 execute pathogen#infect()
