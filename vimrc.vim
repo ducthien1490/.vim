@@ -31,6 +31,7 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_auto_loc_list = 1
 
 Bundle 'majutsushi/tagbar'
+Bundle 'isRuslan/vim-es6'
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_left = 1
 filetype plugin indent on
