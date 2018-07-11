@@ -30,9 +30,12 @@ let g:Powerline_colorscheme='solarized256'
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_auto_loc_list = 1
 
-Bundle 'majutsushi/tagbar'
 Bundle 'isRuslan/vim-es6'
-nmap <F8> :TagbarToggle<CR>
+
+call plug#begin()
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+call plug#end()
+
 let g:tagbar_left = 1
 filetype plugin indent on
 set t_Co=256
@@ -46,13 +49,14 @@ set shiftround
 set autoindent
 set smartindent
 set number
-set cursorline
+set cursorline!
 set cursorcolumn
 set colorcolumn=80
 set hlsearch
 set noswapfile
 set ttyfast
 set lazyredraw
+set backspace=indent,eol,start
 colorscheme molokai
-highlight Comment ctermfg=Blue
+highlight Comment ctermfg=Gray
 execute pathogen#infect()
