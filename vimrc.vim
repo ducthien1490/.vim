@@ -3,8 +3,11 @@ augroup HighlightTrailingSpaces
   autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
   autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
-set nocompatible               " be iMproved
-filetype on                   " required!
+execute pathogen#infect()
+execute pathogen#helptags()
+set nocompatible
+syntax on
+filetype on
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 set rtp+=~/.vim/bundle/vundle/
@@ -30,16 +33,22 @@ let g:Powerline_colorscheme='solarized256'
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_auto_loc_list = 1
 
-Bundle 'isRuslan/vim-es6'
+Bundle 'hashivim/vim-terraform'
+Bundle 'godlygeek/tabular'
 
 call plug#begin()
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'isruslan/vim-es6'
+Plug 'pangloss/vim-javascript'
 call plug#end()
 
-let g:tagbar_left = 1
+let g:go_info_mode = 'gocode'
+let g:terraform_align=1
 filetype plugin indent on
 set t_Co=256
-syntax on
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -57,6 +66,8 @@ set noswapfile
 set ttyfast
 set lazyredraw
 set backspace=indent,eol,start
+set rtp+=$GOPATH/src/golang.org/x/lint/misc/vim
 colorscheme molokai
 highlight Comment ctermfg=Gray
-execute pathogen#infect()
+
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)

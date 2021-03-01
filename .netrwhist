@@ -1,4 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/home/ducthien/project/test/react-udemy/ReduxSimpleStarter/src/components'
-let g:netrw_dirhist_2='/Users/ducthien/.vim/bundle/vundle'
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/Users/ducthien/Projects/Rakuna/official-rakuna-app'
+let g:netrw_dirhist_4='/Users/ducthien/Projects/Rakuna/official-rakuna-app/app/services'
+let g:netrw_dirhist_3='/Users/ducthien/Projects/Rakuna/official-rakuna-app/app/models'
+let g:netrw_dirhist_2='/Users/ducthien/Projects/Rakuna/official-rakuna-app/app/javascript/components/prospects_table'
+let g:netrw_dirhist_1='/Users/ducthien/Projects/Rakuna/official-rakuna-app/app/javascript/components'
+let g:netrw_dirhist_0='/Users/ducthien/Projects/Rakuna/official-rakuna-app/app/controllers'
+let g:netrw_dirhist_9='/Users/ducthien/Projects/Rakuna/official-rakuna-app/app/controllers/recruiter'
+let g:netrw_dirhist_8='/Users/ducthien/Projects/Rakuna/official-rakuna-app/app/controllers'
+let g:netrw_dirhist_7='/Users/ducthien/Projects/Rakuna/official-rakuna-app/app/javascript/containers'
+let g:netrw_dirhist_6='/Users/ducthien/Projects/Rakuna/official-rakuna-app/app/javascript'
