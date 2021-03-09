@@ -7,3 +7,4 @@ $ cd .vim
 $ rake setup
 $ vim
 $ --> :BundleInstall
+$ --> :PlugInstall

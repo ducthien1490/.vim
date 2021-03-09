@@ -32,6 +32,7 @@ let g:Powerline_colorscheme='solarized256'
 
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_auto_loc_list = 1
+let g:netrw_liststyle = 6
 
 Bundle 'hashivim/vim-terraform'
 Bundle 'godlygeek/tabular'
@@ -41,8 +42,10 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-ruby/vim-ruby'
-Plug 'isruslan/vim-es6'
-Plug 'pangloss/vim-javascript'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 let g:go_info_mode = 'gocode'
