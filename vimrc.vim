@@ -1,55 +1,34 @@
+call plug#begin()
+Plug 'joshdick/onedark.vim'
+Plug 'fatih/vim-go'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'pangloss/vim-javascript'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'hashivim/vim-terraform'
+call plug#end()
+
 augroup HighlightTrailingSpaces
   autocmd!
   autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
   autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
-execute pathogen#infect()
-execute pathogen#helptags()
+
 set nocompatible
 syntax on
 filetype on
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
-
-" My Bundles here:
-"
-" original repos on github
-Bundle 'Lokaltog/vim-powerline'
-" Powerline: cool status lines
-if has("gui_running") && has("gui_macvim")
-  let g:Powerline_symbols='fancy'
-endif
-
-let g:Powerline_colorscheme='solarized256'
-" lighter colors: let g:Powerline_colorscheme='solarized'
-" To reload: :PowerlineReloadColorscheme
-
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_auto_loc_list = 1
-let g:netrw_liststyle = 6
-
-Bundle 'hashivim/vim-terraform'
-Bundle 'godlygeek/tabular'
-
-call plug#begin()
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'vim-ruby/vim-ruby'
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'tpope/vim-surround'
-Plug 'jiangmiao/auto-pairs'
-call plug#end()
-
 let g:go_info_mode = 'gocode'
-let g:terraform_align=1
+let g:terraform_align = 1
+let g:airline_theme = 'onedark'
+let g:airline_powerline_fonts = 1
 filetype plugin indent on
 set t_Co=256
 set tabstop=2
@@ -69,8 +48,12 @@ set noswapfile
 set ttyfast
 set lazyredraw
 set backspace=indent,eol,start
-set rtp+=$GOPATH/src/golang.org/x/lint/misc/vim
-colorscheme molokai
+colorscheme onedark
 highlight Comment ctermfg=Gray
 
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+nnoremap <silent> <C-f> :Files<Cr>
+command! -bang -nargs=0 Rgw
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(expand('<cword>')), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+nnoremap <silent> <C-F> :Rg<Cr>
