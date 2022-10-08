@@ -33,6 +33,12 @@ let g:terraform_align=1
 let g:airline_theme='onedark'
 let g:airline_powerline_fonts=1
 let g:javascript_plugin_jsdoc = 1
+let g:rg_derive_root='true'
+let g:fzf_buffers_jump = 1
+let g:fzf_action = {
+\ 'enter': 'tab split',
+\ 'ctrl-x': 'split',
+\ 'ctrl-v': 'vsplit'}
 filetype plugin indent on
 set t_Co=256
 set tabstop=2
@@ -56,9 +62,9 @@ set regexpengine=1
 colorscheme onedark
 highlight Comment ctermfg=Gray
 
-nnoremap <silent> <C-f> :Files<Cr>
+nnoremap <C-F> :Rg<CR>
+nnoremap <C-P> :Files<CR>
 command! -bang -nargs=0 Rgw
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(expand('<cword>')), 1,
   \   fzf#vim#with_preview(), <bang>0)
-nnoremap <silent> <C-F> :Rg<Cr>
