@@ -1,9 +1,10 @@
 call plug#begin()
-  Plug 'joshdick/onedark.vim'
+  Plug 'sainnhe/sonokai'
   Plug 'fatih/vim-go'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'vim-ruby/vim-ruby'
+  Plug 'tpope/vim-rails'
   Plug 'tpope/vim-surround'
   Plug 'maxmellon/vim-jsx-pretty'
   Plug 'tpope/vim-endwise'
@@ -12,6 +13,7 @@ call plug#begin()
   Plug 'vim-airline/vim-airline-themes'
   Plug 'hashivim/vim-terraform'
   Plug 'sheerun/vim-polyglot'
+  Plug 'godlygeek/tabular'
 call plug#end()
 
 augroup HighlightTrailingSpaces
@@ -23,6 +25,11 @@ augroup END
 execute pathogen#infect()
 execute pathogen#helptags()
 
+if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+
 set nocompatible
 syntax on
 filetype on
@@ -31,7 +38,11 @@ set encoding=utf-8 " Necessary to show Unicode glyphs
 let g:go_info_mode='gocode'
 let g:terraform_align=1
 let g:airline_theme='onedark'
-let g:airline_powerline_fonts=1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.colnr = " "
+let g:airline_theme='onedark'
 let g:javascript_plugin_jsdoc = 1
 let g:rg_derive_root='true'
 let g:fzf_buffers_jump = 1
@@ -58,8 +69,13 @@ set noswapfile
 set ttyfast
 set lazyredraw
 set backspace=indent,eol,start
-set regexpengine=1
-colorscheme onedark
+set re=0
+set termguicolors
+let g:sonokai_style = 'andromeda'
+let g:sonokai_better_performance = 1
+let g:sonokai_transparent_background=1
+
+colorscheme sonokai
 highlight Comment ctermfg=Gray
 
 nnoremap <C-F> :Rg<CR>
