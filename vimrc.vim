@@ -37,12 +37,11 @@ set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 let g:go_info_mode='gocode'
 let g:terraform_align=1
-let g:airline_theme='onedark'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 let g:airline_symbols.colnr = " "
-let g:airline_theme='onedark'
+let g:airline_theme='ayu_dark'
 let g:javascript_plugin_jsdoc = 1
 let g:rg_derive_root='true'
 let g:fzf_buffers_jump = 1
@@ -76,7 +75,6 @@ let g:sonokai_better_performance = 1
 let g:sonokai_transparent_background=1
 
 colorscheme sonokai
-highlight Comment ctermfg=Gray
 
 nnoremap <C-F> :Rg<CR>
 nnoremap <C-P> :Files<CR>
