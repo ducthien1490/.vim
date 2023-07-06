@@ -29,7 +29,7 @@ namespace :setup do
   end
 
   task :vimrc do
-    if File.exists?(x['~/.vimrc'])
+    if File.exist?(x['~/.vimrc'])
       fn = "~/.vimrc.#{Time.now.to_i.to_s}"
       status "Moving aside your .vimrc to #{fn}..."
       FileUtils.mv x["~/.vimrc"], x[fn]
